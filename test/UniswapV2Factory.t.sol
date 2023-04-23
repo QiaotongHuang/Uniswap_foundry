@@ -9,18 +9,18 @@ import "./mocks/ERC20Mintable.sol";
 contract UniswapV2FactoryTest is Test {
     UniswapV2Factory factory;
 
-    ERC20Mintable token0;
-    ERC20Mintable token1;
-    ERC20Mintable token2;
-    ERC20Mintable token3;
+    ERC20Mintable tokenA;
+    ERC20Mintable tokenB;
+    ERC20Mintable tokenC;
+    ERC20Mintable tokenD;
 
     function setUp() public {
         factory = new UniswapV2Factory();
 
-        token0 = new ERC20Mintable("Token A", "TKNA");
-        token1 = new ERC20Mintable("Token B", "TKNB");
-        token2 = new ERC20Mintable("Token C", "TKNC");
-        token3 = new ERC20Mintable("Token D", "TKND");
+        tokenA = new ERC20Mintable("Token A", "TKNA");
+        tokenB = new ERC20Mintable("Token B", "TKNB");
+        tokenC = new ERC20Mintable("Token C", "TKNC");
+        tokenD = new ERC20Mintable("Token D", "TKND");
     }
 
     function encodeError(string memory error)
@@ -33,33 +33,33 @@ contract UniswapV2FactoryTest is Test {
 
     function testCreatePair() public {
         address pairAddress = factory.createPair(
-            address(token1),
-            address(token0)
+            address(tokenB),
+            address(tokenA)
         );
 
         UniswapV2Pair pair = UniswapV2Pair(pairAddress);
 
-        assertEq(pair.token0(), address(token0));
-        assertEq(pair.token1(), address(token1));
+        assertEq(pair.token0(), address(tokenA));
+        assertEq(pair.token1(), address(tokenB));
     }
 
     function testCreatePairZeroAddress() public {
         vm.expectRevert(encodeError("ZeroAddress()"));
-        factory.createPair(address(0), address(token0));
+        factory.createPair(address(0), address(tokenA));
 
         vm.expectRevert(encodeError("ZeroAddress()"));
-        factory.createPair(address(token1), address(0));
+        factory.createPair(address(tokenB), address(0));
     }
 
     function testCreatePairPairExists() public {
-        factory.createPair(address(token1), address(token0));
+        factory.createPair(address(tokenB), address(tokenA));
 
         vm.expectRevert(encodeError("PairExists()"));
-        factory.createPair(address(token1), address(token0));
+        factory.createPair(address(tokenB), address(tokenA));
     }
 
     function testCreatePairIdenticalTokens() public {
         vm.expectRevert(encodeError("IdenticalAddresses()"));
-        factory.createPair(address(token0), address(token0));
+        factory.createPair(address(tokenA), address(tokenA));
     }
 }
