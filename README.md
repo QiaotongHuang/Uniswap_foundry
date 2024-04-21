@@ -1,23 +1,45 @@
-# Uniswap_foundry
-UniswapV2 was written three years ago and uses outdated versions of Solidity tools  
-Project goals:  
-Achieve deep knowledge of the UniswapV2 implementation  
-Learn Foundry, the next generation ethereum development environment  
-You may use any online resources for the project.  
-Read through the UniswapV2 code:  
-**[Uniswap/v2-core](https://github.com/Uniswap/v2-core)**  
-**[Uniswap/v2-periphery](https://github.com/Uniswap/v2-periphery)**  
-**[Class Notes](https://drive.google.com/file/d/1nrstvabIItERQb-ilnnnlwSX49nQOIA8/view?usp=share_link)**(written by Jichu Wang, a former student at NEU)  
+# UniswapV2 Project
 
-Copy the UniswapV2 code into a new Foundry project  
-The original code had the core and periphery contracts in different repos. We recommend combining them into a single repo to simplify development, and copying libraries rather than using package management.  
-UniswapV2Router01 should not be included.  
-Upgrade the UniswapV2 code to the latest Solidity version that Foundry supports.  
-Write Solidity tests that achieve >95% line coverage for each of the following contracts:  
-__UniswapV2Router02__  
-__UniswapV2Pair__  
-__UniswapV2Factory__  
-Generate and commit a line coverage report to assess the quality of your tests.  
+## Project Goals
+
+The primary objectives of this project are to:
+
+- Gain in-depth understanding of the UniswapV2 implementation.
+- Familiarize with Foundry, the next generation Ethereum development environment.
+- Utilize online resources effectively for project completion.
+
+## Project Overview
+
+### UniswapV2 Code Review
+
+- Review the UniswapV2 codebase, including:
+  - [Uniswap/v2-core](https://github.com/Uniswap/v2-core)
+  - [Uniswap/v2-periphery](https://github.com/Uniswap/v2-periphery)
+  - [Class notes](https://drive.google.com/file/d/1nrstvabIItERQb-ilnnnlwSX49nQOIA8/view?usp=share_link) by Jichu Wang, a former student at NEU
+
+### Project Setup
+
+- Copy the UniswapV2 code into a new Foundry project.
+- Combine core and periphery contracts into a single repository for streamlined development.
+- Copy required libraries instead of relying on package management.
+- Exclude UniswapV2Router01 from the project.
+
+### Solidity Version Upgrade
+
+- Upgrade the UniswapV2 codebase to the latest Solidity version supported by Foundry.
+
+### Solidity Testing
+
+- Write Solidity tests targeting the following contracts:
+  - UniswapV2Router02
+  - UniswapV2Pair
+  - UniswapV2Factory
+- Aim for test coverage exceeding 95% for each contract.
+- Generate and commit a line coverage report to evaluate the effectiveness of the tests.
+
+## Resources
+
+- Utilize online resources to enhance understanding and resolve implementation challenges.
 
 <img width="754" alt="image" src="https://user-images.githubusercontent.com/113825112/233853123-ba899743-a0e0-44b1-a283-9155bd39df78.png">
 
